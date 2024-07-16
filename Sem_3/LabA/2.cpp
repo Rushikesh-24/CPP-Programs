@@ -19,23 +19,20 @@ int main()
         cout<<endl;
     }
     string str;
-    int r=0;
     cout<<"Enter the string you want to search ";
     cin>> str;
     int flag=str.length();
-    for(int i=0;i<m;i++){
+    for(int k=0;k<str.length();k++){
+        for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-            if(str[r]==arr[i][j])
+            if(str[k]==arr[i][j])
             {
-                if(r>=str.length()){
-                    break;
-                }
                 flag--;
-                cout<<str[r]<<" found at position"<<i+1<<","<<j+1;
+                cout<<str[k]<<" found at position"<<i+1<<","<<j+1;
                 cout<<endl;
-                r++;
             }
         }
+    }
     }
     if(flag<=0)
     {
