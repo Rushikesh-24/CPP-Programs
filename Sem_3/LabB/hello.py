@@ -1,5 +1,4 @@
 import os
-import time
 
 def delete_matching_files():
     script_directory = os.path.dirname(os.path.realpath(__file__))

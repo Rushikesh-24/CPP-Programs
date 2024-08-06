@@ -26,6 +26,9 @@ void display(){
     for (int i = 0; i < 4; i++) {
       cout<<"Subject "<<i+1<<" marks : ";
       cin >> subject_marks[i];
+      if(subject_marks[i]>100){
+        subject_marks[i] = 100;
+      }
     }
   }
   void getdetails(){

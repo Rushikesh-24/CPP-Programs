@@ -1,5 +1,4 @@
 // write a program to convert a array to linked list
-// write a program to conver a array to doube linked list
 #include <iostream>
 using namespace std;
 struct node
