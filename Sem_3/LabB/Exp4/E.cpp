@@ -1,113 +1,61 @@
-// #include <iostream>
-// #include <vector>
-
-// using namespace std;
-
-// vector<int> multiplyWithScalar(const vector<int>& vec, int scalar) {
-//     vector<int> result(vec.size());
-//     for (size_t i = 0; i < vec.size(); ++i) {
-//         result[i] = vec[i] * scalar;
-//     }
-//     return result;
-// }
-
-// vector<int> addVectors(const vector<int>& vec1, const vector<int>& vec2) {
-//     if (vec1.size() != vec2.size()) {
-//         throw invalid_argument("Vectors must be of the same size");
-//     }
-//     vector<int> result(vec1.size());
-//     for (size_t i = 0; i < vec1.size(); ++i) {
-//         result[i] = vec1[i] + vec2[i];
-//     }
-//     return result;
-// }
-
-// int main() {
-//     int n;
-//     cout << "Enter the size of the vector: ";
-//     cin >> n;
-
-//     vector<int> vec1(n);
-//     cout << "Enter the elements of the vector: ";
-//     for (int i = 0; i < n; ++i) {
-//         cin >> vec1[i];
-//     }
-
-//     int scalar;
-//     cout << "Enter the scalar value to multiply: ";
-//     cin >> scalar;
-
-//     vector<int> multipliedVec = multiplyWithScalar(vec1, scalar);
-//     cout << "Result of scalar multiplication: ";
-//     for (int val : multipliedVec) {
-//         cout << val << " ";
-//     }
-//     cout << endl;
-
-//     vector<int> vec2(n);
-//     cout << "Enter the elements of the second vector: ";
-//     for (int i = 0; i < n; ++i) {
-//         cin >> vec2[i];
-//     }
-
-//     try {
-//         vector<int> addedVec = addVectors(vec1, vec2);
-//         cout << "Result of vector addition: ";
-//         for (int val : addedVec) {
-//             cout << val << " ";
-//         }
-//         cout << endl;
-//     } catch (const invalid_argument& e) {
-//         cerr << e.what() << endl;
-//     }
-
-//     return 0;
-// }
-#include <iostream>
+#include<iostream>
 using namespace std;
-class Vector {
-  int *v;
-  int size;
 
+class Vector {
+  int* a;
+  int size;
 public:
-  Vector(int size) {
-    size = size;
-    v = new int[size];
-  }
-  friend istream &operator>>(istream &is, Vector &obj) {
-    for (int i = 0; i < obj.size; i++) {
-      is >> obj.v[i];
+  Vector(int s = 3) {
+    size = s;
+    a = new int[size];
+    for (int i = 0; i < size; i++) {
+      a[i] = 0;
     }
-    return is;
   }
-  int &operator[](int index) { return v[index]; }
-  friend Vector multiply(Vector v, int scalar) {
-    Vector x(v.size);
-    for (int i = 0; i < v.size; i++) {
-      x.v[i] = v.v[i] * scalar;
+  void getdata() {
+    cout << "Enter the elements of the Vector" << endl;
+    for (int i = 0; i < size; i++) {
+      cin >> a[i];
     }
-    return x;
   }
-  friend void displayVector( Vector& vec) {
-    cout << "Vector elements: ";
-    for (int i = 0; i < vec.size; ++i) {
-      cout << vec[i] << " ";
+
+  Vector operator*(int p) {
+    Vector v3(size);
+    for (int i = 0; i < size; i++) {
+      v3.a[i] = a[i] * p;
     }
-    cout << endl;
+    return v3;
+  }
+  Vector operator+(const Vector& v) {
+    if (size != v.size) {
+      cout << "Error: Vector sizes are not the same." << endl;
+      return Vector();
+    }
+    Vector result(size);
+    for (int i = 0; i < size; i++) {
+      result.a[i] = a[i] + v.a[i];
+    }
+    return result;
+  }
+
+  void display() {
+    for (int i = 0; i < size; i++) {
+      cout << " " << a[i];
+    }
+    cout<<endl;
   }
 };
 
 int main() {
   int n, scalar;
-  cout << "Enter the size of the vector";
+  cout << "Enter the size of the vector: ";
   cin >> n;
-  Vector a(n);
-  cout << "Enter the elements of the Vector";
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  cout << "The elements to multiply with the Vector : ";
+  Vector v1(n), v2(n) ,v3(n);
+  v1.getdata();
+  cout << "Enter scalar: ";
   cin >> scalar;
-  Vector b = multiply(a, scalar);
-  displayVector(b);
+  v2 = v1 * scalar;
+  v3 = v1 + v2;
+  v2.display();
+  v3.display();
 }
