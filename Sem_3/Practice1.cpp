@@ -1,4 +1,3 @@
-// write a program to convert a array to linked list
 #include <iostream>
 using namespace std;
 struct node
