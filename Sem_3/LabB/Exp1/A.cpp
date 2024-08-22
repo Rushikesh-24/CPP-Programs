@@ -32,13 +32,12 @@ void display(){
     }
   }
   void getdetails(){
-    cout<<"Enter the details of the students" << endl;
-    cout<<"Name : ";
-    cin>>Name;
-    cin.ignore();
-    cout<<"Branch : ";
-    cin>>branch;
-    cin.ignore();
+      cout<<"Enter the details of the students" << endl;
+      cout<<"Name : ";
+      cin.ignore();
+      getline(cin, Name);
+      cout<<"Branch : ";
+      getline(cin, branch);
   };
 };
 int main() {
