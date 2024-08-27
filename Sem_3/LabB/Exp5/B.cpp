@@ -1,26 +1,21 @@
 #include <iostream>
 using namespace std;
-
 class Base {
 public:
     int baseData;
 };
-
 class Intermediate1 : virtual public Base {
 public:
     int intermediate1Data;
 };
-
 class Intermediate2 : virtual public Base {
 public:
     int intermediate2Data;
 };
-
 class Derived : public Intermediate1, public Intermediate2 {
 public:
     int derivedData;
 };
-
 int main() {
     Derived obj;
     obj.baseData = 10;

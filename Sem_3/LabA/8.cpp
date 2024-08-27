@@ -100,13 +100,14 @@ int main(){
         cin >> value;
         tree2.insert(value);
     }
+    int *c = tree2.preorderArray(numNodes);
     if(numNodes2 != numNodes){
         cout<<"The trees do not have the same number of nodes"<<endl;
         return 0;
     }
     bool equalTrees = true;
     for(int i = 0; i < numNodes; i++){
-        if(a[i] != b[i]){
+        if(a[i] != c[i]){
             equalTrees = false;
             break;
         }
