@@ -22,6 +22,8 @@ public:
 int main() {
     Dog dog;
     Cat cat;
+    Animal animal;
+    animal.eat();
     dog.eat();
     dog.bark();
     cat.eat();

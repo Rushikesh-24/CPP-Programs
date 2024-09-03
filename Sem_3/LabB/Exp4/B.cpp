@@ -25,20 +25,22 @@ class test{
         return temp;
     }
     void display(){
-        cout<<"Value :"<<a<<endl;
+        cout<<a<<endl;
     }
 };
 int main(){
-    test x(10),y(20);
+    test x(25),y(20);
+    cout<<"Initial Values "<<endl<<"x : ";
     x.display();
+    cout<<"y : ";
     y.display();
     x = 5 + y;
+    cout<<"5 + y = ";
     x.display();
-    y.display();
     x = x * y;
+    cout<<"x * y = ";
     x.display();
-    y.display();
     x = y - 5;
+    cout<<"y - 5 = ";
     x.display();
-    y.display();
 }

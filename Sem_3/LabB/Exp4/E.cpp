@@ -13,7 +13,6 @@ public:
     }
   }
   void getdata() {
-    cout << "Enter the elements of the Vector" << endl;
     for (int i = 0; i < size; i++) {
       cin >> a[i];
     }
@@ -51,11 +50,16 @@ int main() {
   cout << "Enter the size of the vector: ";
   cin >> n;
   Vector v1(n), v2(n) ,v3(n);
+  cout<<"Enter the elements of the Vector 1 :";
   v1.getdata();
+  cout<<"Enter the elements of the Vector 2 :";
+  v2.getdata();
+  cout<<"Vector 1: ";v1.display();
+  cout<<"Vector 2: ";v2.display();
   cout << "Enter scalar: ";
   cin >> scalar;
-  v2 = v1 * scalar;
+  v3 = v1 * scalar;
+  cout<<"Multiplication of Vector 1 with scalar "<<scalar<<": ";v3.display();
   v3 = v1 + v2;
-  v2.display();
-  v3.display();
+  cout<<"Addition of Vector 1 and Vector 2: ";v3.display();
 }
