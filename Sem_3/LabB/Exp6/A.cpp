@@ -9,14 +9,14 @@ public:
 
 class Circle : public Shape {
 public:
-    void draw() override {
+    void draw() {
         cout << "Drawing a circle." << endl;
     }
 };
 
 class Rectangle : public Shape {
 public:
-    void draw() override {
+    void draw() {
         cout << "Drawing a rectangle." << endl;
     }
 };
@@ -30,7 +30,7 @@ int main() {
     shapePtr->draw();
 
     shapePtr = &rectangle;
-    shapePtr->draw();
+    shapePtr->draw(); 
 
     return 0;
 }

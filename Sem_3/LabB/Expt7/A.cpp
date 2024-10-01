@@ -1,36 +1,31 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
 using namespace std;
-class Shape {
-public:
-    virtual void draw() {
-        cout << "Drawing a shape." << endl;
-    }
-};
-
-class Circle : public Shape {
-public:
-    void draw() {
-        cout << "Drawing a circle." << endl;
-    }
-};
-
-class Rectangle : public Shape {
-public:
-    void draw() {
-        cout << "Drawing a rectangle." << endl;
-    }
-};
-
 int main() {
-    Shape* shapePtr;
-    Circle circle;
-    Rectangle rectangle;
+    string input;
+    string line;
+    int numLines = 0, numWords = 0, numChars = 0;
 
-    shapePtr = &circle;
-    shapePtr->draw();
+    cout << "Enter text (Ctrl+D to end input):" << endl;
 
-    shapePtr = &rectangle;
-    shapePtr->draw(); 
+    while (getline(cin, line)) {
+        numLines++;
+        numChars += line.length();
+        istringstream iss(line);
+        string word;
+        while (iss >> word) {
+            numWords++;
+        }
+    }
+
+    cout << left << setw(15) << "Number of lines" 
+              << right << setw(10) << numLines << endl;
+    cout << left << setw(15) << "Number of words" 
+              << right << setw(10) << numWords << endl;
+    cout << left << setw(15) << "Number of characters" 
+              << right << setw(10) << numChars << endl;
 
     return 0;
 }
